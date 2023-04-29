@@ -1,8 +1,14 @@
-.icon{
+.iconka{
     padding: 7px;
     margin: 1px;
 }
 h1{
     display: flex;
     justify-content: center;
+}
+.test{
+    display: flex;
+    justify-content: center;
+    padding-top: 500px;
+    padding-bottom: 500px;
 }
