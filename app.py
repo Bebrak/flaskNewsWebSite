@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 import os
 from config import Config
+import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 app.config.from_object(Config)
