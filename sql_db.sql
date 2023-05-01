@@ -1,5 +1,5 @@
 create table if not exists news (
 id integer primary key autoincrement,
-title text not null,
-text text not null,
+news_title text not null,
+news_text text not null
 );

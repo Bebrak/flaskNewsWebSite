@@ -1,11 +1,30 @@
-from flask import Flask, render_template, url_for
+import datetime
+import math
 import os
+import sqlite3
+import time
+import git
+from flask import Flask, render_template, flash, redirect, session, url_for, request, abort, g
+from fdatabase import FDataBase
 from config import Config
 import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fdb.db')))
+app.permanent_session_lifetime = datetime.timedelta(seconds=60)
+
+def connect_db():
+    conn = sqlite3.connect(app.config['DATABASE'])
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def get_db():
+    if not hasattr(g, 'link_db'):
+        g.link_db = connect_db()
+        return g.link_db
 
 @app.route('/')
 def index():
