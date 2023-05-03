@@ -11,26 +11,23 @@ def create_db():
     db.commit()
     db.close()
 
-
 class FDataBase:
     def __init__(self, db):
         self.__db = db
         self.__cur = db.cursor()
 
-    def addMenu(self, news_title, news_text):
-        self.counter_true_or_false = True
+    def addMenu(self, news_title, text_small, text_big, news_img):
         try:
-            for i in db.getMenu():
-                if i['news_title'] == news_title:
-                    self.counter_true_or_false = False
-                    break
-            if self.counter_true_or_false == True:
-                self.__cur.execute('INSERT INTO news VALUES (NULL, ?, ?)', (news_title, news_text))
-                self.__db.commit()
+                sql = f"SELECT news_title FROM news WHERE news_title = ?"
+                self.__cur.execute(sql, (news_title,))
+                if self.__cur.fetchone() is None:
+                    self.__cur.execute(f"INSERT INTO news VALUES (NULL, ?, ?, ?, ?)", (news_title, text_small, text_big, news_img))
+                    self.__db.commit()
         except sqlite3.Error as e:
             print('Ошибка добавления в БД', str(e))
             return False
         return True
+
 
     def delMenu(self, id=0):
         try:
@@ -54,49 +51,16 @@ class FDataBase:
             print('Ошибка чтения из БД')
             return []
 
-    # def addPost(self, title, text):
-    #     try:
-    #         tm = math.floor(time.time())
-    #         self.__cur.execute("INSERT INTO posts VALUES (NULL, ?, ?, ?)", (title, text, tm))
-    #         self.__db.commit()
-    #     except sqlite3.Error as e:
-    #         print("Ошибка добавления поста в БД", str(e))
-    #         return False
-    #     return True
-    #
-    # def getPostAnnoce(self):
-    #     try:
-    #         self.__cur.execute(f"SELECT id, title, text FROM posts ORDER BY time DESC")
-    #         res = self.__cur.fetchall()
-    #         if res: return res
-    #     except sqlite3.Error as e:
-    #         print("Ошибка получения статей из БД" + str(e))
-    #     return []
-    #
-    # def getPost(self, postid):
-    #     try:
-    #         self.__cur.execute(f"SELECT  title, text FROM posts WHERE id = {postid} LIMIT 1")
-    #         res = self.__cur.fetchone()
-    #         if res: return res
-    #     except sqlite3.Error as e:
-    #         print("Ошибка получения статьи из БД" + str(e))
-    #     return (False, False)
-
-
 if __name__ == '__main__':
     from app import app, connect_db
-
-    # print(create_db.__doc__)
     db = connect_db()
     db = FDataBase(db)
-# print(db.addMenu('Добав. статью', 'post'))
-    # for i in db.getMenu():
-    #     print(i['url'])
-# print(*db.getMenu())
-    # print(db.delMenu(id=0))
-    # print(db.addMenu('История Россииф', 'Бебраааааyyasydyasdytay'))
-# print(db.addMenu('Главная', 'index'))
-# print(db.addMenu('Авторизация1', 'login'))
-# print(db.addMenu('Авторизация2', 'login2'))
-    # create_db()
-# print(db.addMenu('Все статьи', 'allposts'))
+
+    # create_db()                                                       # Создать ДБ
+
+    # for i in db.getMenu():                                            #
+    #     print(i['url'])                                               # Вывести данные из ДБ
+
+    # print(db.delMenu(id=0))                                           # Удалить данные из ДБ
+
+    print(db.addMenu('История Россиифвфывфыв', 'Бебраааааyyasydyasdytay', 'ggggg', 'https://wudgleyd.ru/wp-content/uploads/2/9/a/29ac8e6d6e342b6917b24abb6d85e8f9.jpeg'))   # Добавить данные в ДБ
