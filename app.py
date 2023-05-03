@@ -14,7 +14,6 @@ def connect_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-
 def get_db():
     if not hasattr(g, 'link_db'):
         g.link_db = connect_db()
