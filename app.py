@@ -9,15 +9,6 @@ app.config.from_object(Config)
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fdb.db')))
 app.permanent_session_lifetime = datetime.timedelta(seconds=60)
 
-# def update_news(url='https://www.bragazeta.ru/', count_of_news=3):
-#     db = connect_db()
-#     db = FDataBase(db)
-#     # time.sleep(5)
-#     response = requests.get(url)
-#     bs = BeautifulSoup(response.text, "lxml")
-#     n_title = bs.find('h1', 'title-small')
-#     n_text = bs.find('p', 'card-text')
-#     db.addMenu(n_title.text, n_text.text)
 def connect_db():
     conn = sqlite3.connect(app.config['DATABASE'])
     conn.row_factory = sqlite3.Row
