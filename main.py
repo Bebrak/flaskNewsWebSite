@@ -1,12 +1,7 @@
-import datetime
-import os
-import sqlite3
-from flask import Flask, render_template, g
 from fdatabase import FDataBase
-from config import Config
 import requests
 from bs4 import BeautifulSoup
-from app import app, connect_db
+from app import connect_db
 
 def update_news():
     n_url, n_img = [], []

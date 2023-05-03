@@ -2,10 +2,7 @@ import datetime
 import os
 import sqlite3
 from flask import Flask, render_template, g
-from fdatabase import FDataBase
 from config import Config
-import requests
-from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 app.config.from_object(Config)

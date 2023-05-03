@@ -1,6 +1,4 @@
-import math
 import sqlite3
-import time
 
 
 def create_db():
