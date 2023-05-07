@@ -1,7 +1,7 @@
 import datetime
 import os
 import sqlite3
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, abort
 from config import Config
 import requests
 from bs4 import BeautifulSoup
@@ -48,7 +48,17 @@ def get_db():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('index.html', news=database.getNewsAnnoce())
+@app.route('/news/<int:id_news>')
+def showNews(id_news):  # put application's code here
+    db = get_db()
+    database = FDataBase(db)
+    news_title, text_big, news_img = database.getNewsPost(id_news)
+    if not news_title:
+        abort(404)
+    return render_template('aticle.html', news_title=news_title, text_big=text_big, news_img=news_img)
 
 @app.route('/about')
 def about():

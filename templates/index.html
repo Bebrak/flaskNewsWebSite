@@ -11,6 +11,26 @@
 {% endblock %}
 
 {% block body %}
-<h1>Тут должны быть новости</h1>
-<p class="test">новости</p>
+
+<div class="main-news">
+    <div class="news-left">
+
+    </div>
+    <div class="news-center">
+        <h2 class="main-h"> Свежие новости </h2>
+        {% for n in news %}
+            <a href="{{ url_for('showNews', id_news=n.id) }}" class="media-url" >
+                <div class="media">
+                    <div class="media-img-container">
+                        <img class="media-img" src="{{ n.news_img }}">
+                    </div>
+                    <div class="media-text-container">
+                        <p class="media-title" ><b>{{ n.news_title }}</b></p>
+                        <p class="media-small">{{ n.text_small }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block header %}
+        <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a href="/faq" class="nav-link">FAQ</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link">О сайте</a></li>
+{% endblock %}
+{% block body %}
+<div class="atticle-main-container">
+        <h2>{{news_title}}</h2>
+        <img src="{{news_img}}" class="aticle-img">
+        <p>{{text_big}}</p>
+</div>
+{% endblock %}
