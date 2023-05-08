@@ -52,7 +52,7 @@ def index():
     database = FDataBase(db)
     return render_template('index.html', news=database.getNewsAnnoce())
 @app.route('/news/<int:id_news>')
-def showNews(id_news):  # put application's code here
+def showNews(id_news):
     db = get_db()
     database = FDataBase(db)
     news_title, text_big, news_img = database.getNewsPost(id_news)

@@ -14,7 +14,20 @@
 
 <div class="main-news">
     <div class="news-left">
-
+        <h2 class="main-h"> Популярное </h2>
+        <ul>
+            <div class="main-left-ul">
+                {% for n in news %}
+                <li class="media-left">
+                    <div>
+                        <a href="{{ url_for('showNews', id_news=n.id) }}" class="media-url" >
+                            <p class="media-title" ><b>{{ n.news_title }}</b></p>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </div>
+        </ul>
     </div>
     <div class="news-center">
         <h2 class="main-h"> Свежие новости </h2>
