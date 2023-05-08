@@ -66,7 +66,7 @@ class FDataBase:
         return []
     def getNewsAnnoceRedactor(self):
         try:
-            self.__cur.execute(f"SELECT id, news_title, text_small, news_img FROM news ORDER BY id LIMIT 1")
+            self.__cur.execute(f"SELECT id, news_title, text_small, news_img FROM news WHERE id = {int(26)}")
             res = self.__cur.fetchall()
             if res: return res
         except sqlite3.Error as e:

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-FAQ
+Часто задаваемые вопросы
 {% endblock %}
 
 {% block header %}
@@ -11,6 +11,42 @@ FAQ
 {% endblock %}
 
 {% block body %}
-<h1>FAQ</h1>
-<p class="test">faq</p>
+<div class="faq-main-container">
+        <h2 class="atticle-h"><b>Часто задаваемые вопросы</b></h2>
+        <div class="faq-main-ul">
+                        <div class="faq-text-container">
+                                <p class="faq-p">Что это за сайт?</p>
+                                <span class="faq-span">Этот сайт - это мой итоговый проект, который должны сдать в конце обучения все обучающиеся детского технопарка <a href="https://kvantorium32.ru/">"КВАНТОРИУМ"</a> города Брянска по направлению IT.</span>
+                        </div>
+                        <div class="faq-text-container">
+                                <p class="faq-p">Откуда берется информация для сайта?</p>
+                                <span class="faq-span">Все новости берутся с сайта <a href="https://www.bragazeta.ru/?amp">"БРЯНСКИЕ НОВОСТИ"</a>. После парсинга новости добавляются в базу данных, а затем используются в моем сайте.</span>
+                        </div>
+                        <div class="faq-text-container">
+                                <p class="faq-p">Какие ты знаешь интересные факты о своем сайте?</p>
+                                <ul>
+                                        <li>
+                                                <span class="faq-span">На этом сайте никогда не будет рекламы.</span>
+                                        </li>
+                                        <li>
+                                                <span class="faq-span">Этот сайт выполнен в качестве итогового проекта для обучающихся детского технопарка <a href="https://kvantorium32.ru/">"КВАНТОРИУМ"</a> города Брянска по направлению IT.</span>
+                                        </li>
+                                        <li>
+                                                <span class="faq-span">Этот сайт стоит 0 рублей 0 копеек.</span>
+                                        </li>
+                                        <li>
+                                                <span class="faq-span">Мой сайт есть на <a href="https://github.com/Bebrak/flaskNewsWebSite">GitHub</a>.</span>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="faq-text-container">
+                                <p class="faq-p">Доволен ли ты конечным результатом?</p>
+                                <span class="faq-span">Да, но я считаю, что многое можно улучшить и доработать.</span>
+                        </div>
+                        <div class="faq-text-container">
+                                <p class="faq-p">Какая практическая ценность твоего проекта?</p>
+                                <span class="faq-span">Во время работы над проектом я узнал, как создавать сайты с помощью "html" и "css", научился работать с базами данных "sqlite3" и улучшил свое знание языка "python".</span>
+                        </div>
+        </div>
+</div>
 {% endblock %}
