@@ -56,6 +56,22 @@ class FDataBase:
         except sqlite3.Error as e:
             print("Ошибка получения новостных статей из БД" + str(e))
         return []
+    def getNewsAnnocePopular(self):
+        try:
+            self.__cur.execute(f"SELECT id, news_title, text_small, news_img FROM news ORDER BY id LIMIT 10")
+            res = self.__cur.fetchall()
+            if res: return res
+        except sqlite3.Error as e:
+            print("Ошибка получения новостных статей из БД" + str(e))
+        return []
+    def getNewsAnnoceRedactor(self):
+        try:
+            self.__cur.execute(f"SELECT id, news_title, text_small, news_img FROM news ORDER BY id LIMIT 1")
+            res = self.__cur.fetchall()
+            if res: return res
+        except sqlite3.Error as e:
+            print("Ошибка получения новостных статей из БД" + str(e))
+        return []
     def getNewsPost(self, newsid):
         try:
             self.__cur.execute(f"SELECT  news_title, text_big, news_img FROM news WHERE id = {newsid} LIMIT 1")

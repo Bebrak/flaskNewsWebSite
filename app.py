@@ -50,7 +50,7 @@ def get_db():
 def index():
     db = get_db()
     database = FDataBase(db)
-    return render_template('index.html', news=database.getNewsAnnoce())
+    return render_template('index.html', news=database.getNewsAnnoce(), news_left=database.getNewsAnnocePopular(), news_up=database.getNewsAnnoceRedactor())
 @app.route('/news/<int:id_news>')
 def showNews(id_news):
     db = get_db()
