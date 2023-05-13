@@ -93,4 +93,4 @@ if __name__ == '__main__':
 
     # print(db.delMenu(id=0))                                           # Удалить данные из ДБ
 
-    # print(db.addMenu('История Россиифвфывфыв', 'Бебраааааyyasydyasdytay', 'ggggg', 'https://wudgleyd.ru/wp-content/uploads/2/9/a/29ac8e6d6e342b6917b24abb6d85e8f9.jpeg'))   # Добавить данные в ДБ
+    # print(db.addMenu())   # Добавить данные в ДБ

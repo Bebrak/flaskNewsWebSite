@@ -73,5 +73,5 @@ def page_not_found(error):
     return render_template('page404.html', title='Страница не найдена')
 
 if __name__ == "__main__":
-    update_news()
+    # update_news() # может работать некорректно из-за обновления на сайте, с которого я беру новости
     app.run()
