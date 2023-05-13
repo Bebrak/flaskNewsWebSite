@@ -178,3 +178,24 @@ header{
     justify-content: center;
     align-items: center;
 }
+.bg-green{
+    --bs-bg-opacity: 1;
+    background-color: white;
+    outline: 1px solid #ebebeb;
+    -webkit-box-shadow: 5px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 5px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 5px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+main{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+a:hover{
+    color: #ed760e;
+}
+.hovered:hover{
+    color: #ed760e;
+}
+dark-text-usual{
+    color: #000000;
+}

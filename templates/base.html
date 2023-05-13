@@ -9,23 +9,27 @@
     <meta name="description" content="Свежие и актуальные новости Брянска о спорте, культуре, политике и общественной жизни.">
     <link type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet"/>
     <link type="text/css" href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet"/>
-    <link rel="icon" href="http://cdn.monetnik.ru/storage/blog/esab8jexyw/2019-11-262.800.jpg">
+    <link rel="icon" href="https://prixoxo.ru/uploads/posts/2022-05/prixoxo.ru_kartinki-i-foto-gerba-brjanska-3.png">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img class="iconka" src="http://cdn.monetnik.ru/storage/blog/esab8jexyw/2019-11-262.800.jpg" height="55px" width="50px" />
-        <span class="fs-4">Новости Брянска</span>
-      </a>
+        <nav class="navbar navbar-expand-md fixed-top bg-green">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none hovered">
+                <img class="iconka" src="https://prixoxo.ru/uploads/posts/2022-05/prixoxo.ru_kartinki-i-foto-gerba-brjanska-3.png" height="55px" width="50px" />
+                <span class="fs-4">Новости Брянска</span>
+            </a>
 
-      <ul class="nav nav-pills">
-        {% block header %}{% endblock %}
-      </ul>
+            <ul class="nav nav-pills hovered">
+                {% block header %}{% endblock %}
+            </ul>
+        </nav>
     </header>
   </div>
+<main>
   {% block body %}{% endblock %}
+</main>
 <div class="container">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
