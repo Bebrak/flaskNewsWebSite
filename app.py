@@ -1,4 +1,4 @@
-import schedule
+from apscheduler.schedulers.background import BackgroundScheduler
 import datetime
 import os
 import sqlite3
@@ -7,11 +7,6 @@ from config import Config
 import requests
 from bs4 import BeautifulSoup
 from fdatabase import FDataBase
-
-app = Flask(__name__)
-app.config.from_object(Config)
-app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fdb.db')))
-app.permanent_session_lifetime = datetime.timedelta(seconds=60)
 
 def update_news():
     try:
@@ -39,6 +34,15 @@ def update_news():
             db.addMenu(n_title[i].text, n_text_small[i].text, n_text_big, n_img[i])
     except:
         print('Ошибка при получении данных')
+
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(update_news,'interval',hours=3)
+sched.start()
+
+app = Flask(__name__)
+app.config.from_object(Config)
+app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fdb.db')))
+app.permanent_session_lifetime = datetime.timedelta(seconds=60)
 
 def connect_db():
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -78,8 +82,6 @@ def page_not_found(error):
     return render_template('page404.html', title='Страница не найдена')
 
 
-schedule.every().hour.do(update_news)
-schedule.run_pending()
 
 if __name__ == "__main__":
     app.run()
