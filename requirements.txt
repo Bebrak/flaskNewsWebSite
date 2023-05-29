@@ -14,3 +14,4 @@ Werkzeug==2.3.4
 WTForms==3.0.1
 requests==2.30.0
 beautifulsoup4~=4.12.2
+schedule~=1.2.0
