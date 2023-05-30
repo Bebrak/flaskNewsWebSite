@@ -71,8 +71,7 @@ def showNews(id_news):
 @app.route('/about')
 def about():
     return render_template('about.html')
-def job():
-    print('bebra')
+
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
